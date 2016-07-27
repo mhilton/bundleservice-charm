@@ -23,12 +23,12 @@ lint:
 
 .PHONY: help
 help:
-	@echo -e 'jem charm - list of make targets:\n'
+	@echo -e 'bundleservice charm - list of make targets:\n'
 	@echo 'make unittest - Run Python unit tests.'
 	@echo 'make test - Run unit tests and functional tests.'
 	@echo '     Functional tests are run bootstrapping the current default'
 	@echo '     Juju environment.'
-	@echo 'make check - Run Python linter and charm proof.'
+	@echo 'make check - Run Python linter, tests, and charm proof.'
 	@echo 'make deploy - Deploy local charm from a temporary local repository.'
 	@echo '     The charm is deployed to the current default Juju environment.'
 	@echo '     The environment must be already bootstrapped.'
