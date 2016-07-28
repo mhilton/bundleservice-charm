@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Preinstall required packages before calling the install hook.
+apt-get install --force-yes -y --no-install-recommends python3-six python3-yaml
+
+$JUJU_CHARM_DIR/hooks/hooks.py install
+
