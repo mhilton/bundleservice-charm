@@ -1,5 +1,5 @@
 includes: ['layer:basic', 'layer:apt', 'layer:nagios', 'interface:nrpe-external-master']
-repo: git+ssh://git@github.com:makyo/bundleservice-charm-reactive.git
+repo: https://github.com/juju/bundleservice-charm.git
 options:
   apt:
     packages:
