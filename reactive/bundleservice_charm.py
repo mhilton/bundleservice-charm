@@ -11,6 +11,7 @@ from charmhelpers.core import (
 
 
 @when('nrpe-external-master.available')
+@when_not('bundleservice-charm.nrpe-check-added')
 def setup_nagios(nagios):
     config = hookenv.config()
     unit_name = hookenv.local_unit()
@@ -23,6 +24,7 @@ def setup_nagios(nagios):
         context=config["nagios_context"],
         unit=unit_name,
     )
+    set_state('bundleservice-charm.nrpe-check-added')
 
 
 @when('apt.installed.bundleservice')
