@@ -2,6 +2,16 @@
 
 juju charm for bundleservice service
 
+# Building
+
+The bundleservice charm starts its life as a reactive charm, and must be built
+in order to be deployed.  To build the charm from the layer, run:
+
+    make -f Makefile.layers build
+
+This will install all of the dependencies and build the charm from a pinned
+version of charm-tools.
+
 # Usage
 
 ## General Usage

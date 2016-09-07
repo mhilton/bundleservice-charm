@@ -1,4 +1,7 @@
 name: bundleservice
+series:
+  - trusty
+  - xenial
 summary: provide bundle information
 maintainer: Juju GUI Team <juju-gui@lists.launchpad.net>
 description: Juju Bundle Service provides information about bundles.
