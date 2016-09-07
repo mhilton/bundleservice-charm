@@ -1,0 +1,26 @@
+ifeq ($(JUJU_REPOSITORY),)
+	echo "Please set the JUJU_REPOSITORY environment variable"
+	exit 1
+endif
+ifeq ($(LAYER_PATH),)
+	echo "Please set the LAYER_PATH environment variable"
+	exit 1
+endif
+ifeq ($(INTERFACE_PATH),)
+	echo "Please set the INTERFACE_PATH environment variable"
+	exit 1
+endif
+
+.PHONY: build
+build: venv/bin/charm-build
+	venv/bin/charm-build
+
+.PHONY: clean
+clean:
+	rm -rf venv
+
+venv/bin/charm-build: venv
+	venv/bin/pip install -r requirements.txt
+
+venv:
+	virtualenv venv
