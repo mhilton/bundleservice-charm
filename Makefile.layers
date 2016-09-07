@@ -20,7 +20,7 @@ clean:
 	rm -rf venv
 
 venv/bin/charm-build: venv
-	venv/bin/pip install -r requirements.txt
+	venv/bin/pip install -r layer-requirements.txt
 
 venv:
 	virtualenv venv

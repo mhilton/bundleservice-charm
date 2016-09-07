@@ -1,5 +1,4 @@
 from charms.reactive import (
-    hook,
     set_state,
     when,
     when_not,
@@ -41,5 +40,3 @@ def config_changed():
 
 def restart():
     host.service_restart('bundleservice')
-
-
