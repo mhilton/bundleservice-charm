@@ -19,7 +19,7 @@ def setup_nagios(nagios):
          '-e', " 404 Not Found", '-u', '/'],
         name="check_http",
         description="Verify bundleservice is running",
-        context=config["nagios_context"],
+        context=hookenv.config("nagios_context"),
         unit=unit_name,
     )
     set_state('bundleservice-charm.nrpe-check-added')
