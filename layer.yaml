@@ -1,4 +1,9 @@
-includes: ['layer:basic', 'layer:apt', 'layer:nagios', 'interface:nrpe-external-master']
+includes: 
+  - 'layer:basic'
+  - 'layer:apt'
+  - 'layer:nagios'
+  - 'interface:nrpe-external-master'
+  - 'interface:http'
 repo: https://github.com/juju/bundleservice-charm.git
 exclude:
   - Makefile.layers
