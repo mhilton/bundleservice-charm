@@ -12,15 +12,15 @@ ifeq ($(INTERFACE_PATH),)
 endif
 
 .PHONY: build
-build: venv/bin/charm-build
-	venv/bin/charm-build
+build: .venv/bin/charm-build
+	.venv/bin/charm-build
 
 .PHONY: clean
 clean:
-	rm -rf venv
+	rm -rf .venv
 
-venv/bin/charm-build: venv
-	venv/bin/pip install -r layer-requirements.txt
+.venv/bin/charm-build: .venv
+	.venv/bin/pip install -r layer-requirements.txt
 
-venv:
-	virtualenv venv
+.venv:
+	virtualenv .venv

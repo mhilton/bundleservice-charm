@@ -12,18 +12,24 @@ from charmhelpers.core import (
 @when('nrpe-external-master.available')
 @when_not('bundleservice-charm.nrpe-check-added')
 def setup_nagios(nagios):
-    config = hookenv.config()
     unit_name = hookenv.local_unit()
     nagios.add_check(
         ['/usr/lib/nagios/plugins/check_http',
-         '-I', '127.0.0.1', '-p', str(config['listen-port']),
+         '-I', '127.0.0.1', '-p', str(hookenv.config('listen-port')),
          '-e', " 404 Not Found", '-u', '/'],
         name="check_http",
         description="Verify bundleservice is running",
-        context=config["nagios_context"],
+        context=hookenv.config("nagios_context"),
         unit=unit_name,
     )
     set_state('bundleservice-charm.nrpe-check-added')
+
+
+@when('website.available')
+@when_not('bundleservice-charm.website-configured')
+def configure_website(website):
+    website.configure(port=hookenv.config('listen-port'))
+    set_state('bundleservice-charm.website-configured')
 
 
 @when('apt.installed.bundleservice')
