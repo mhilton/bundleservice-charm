@@ -26,8 +26,10 @@ def setup_nagios(nagios):
 
 
 @when('website.available')
+@when_not('bundleservice-charm.website-configured')
 def configure_website(website):
     website.configure(port=hookenv.config('listen-port'))
+    set_state('bundleservice-charm.website-configured')
 
 
 @when('apt.installed.bundleservice')
