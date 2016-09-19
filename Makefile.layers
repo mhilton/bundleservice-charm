@@ -13,7 +13,7 @@ endif
 
 .PHONY: build
 build: .venv/bin/charm-build
-	.venv/bin/charm-build
+	.venv/bin/charm-build -s xenial
 
 .PHONY: clean
 clean:
